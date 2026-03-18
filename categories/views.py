@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+# Minimal view funksiyası
+def category_list(request):
+    return HttpResponse("Categories")
