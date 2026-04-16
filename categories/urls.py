@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views  # Yalnız views import edin
+from .views import category_list
 
 urlpatterns = [
-    path('', views.category_list, name='category_list'),
+    path('', category_list, name='category_list'),
 ]

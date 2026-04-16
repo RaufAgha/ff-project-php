@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Finance Tracker Dashboard</h1>
+
+<p>Welcome!</p>
+
+<div>
+    <a href="/categories/">Categories</a> |
+    <a href="/transactions/">Transactions</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

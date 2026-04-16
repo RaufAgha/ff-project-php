@@ -1,0 +1,76 @@
+/* ===== GENERAL ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    color: #333;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    background: #2c3e50;
+    padding: 12px 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+/* ACTIVE MENU */
+nav ul li.active a {
+    background: #1abc9c;
+}
+
+/* HOVER */
+nav ul li a:hover {
+    background: #16a085;
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* ===== LISTS ===== */
+ul {
+    padding-left: 0;
+}
+
+ul li {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty {
+    color: #999;
+    font-style: italic;
+}

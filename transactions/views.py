@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Transaction
 
 def transaction_list(request):
-    return HttpResponse("Transactions")
+    transactions = Transaction.objects.all()
+    return render(request, 'transactions/list.html', {'transactions': transactions})

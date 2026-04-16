@@ -1,0 +1,15 @@
+<nav>
+    <ul>
+        <li class="{% if request.path == '/' %}active{% endif %}">
+            <a href="/">Home</a>
+        </li>
+
+        <li class="{% if '/categories/' in request.path %}active{% endif %}">
+            <a href="/categories/">Categories</a>
+        </li>
+
+        <li class="{% if '/transactions/' in request.path %}active{% endif %}">
+            <a href="/transactions/">Transactions</a>
+        </li>
+    </ul>
+</nav>

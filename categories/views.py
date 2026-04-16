@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Category
 
-# Minimal view funksiyası
 def category_list(request):
-    return HttpResponse("Categories")
+    categories = Category.objects.all()
+    return render(request, 'categories/list.html', {'categories': categories})
