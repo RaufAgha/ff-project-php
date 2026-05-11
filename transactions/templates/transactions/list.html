@@ -3,17 +3,64 @@
 {% block title %}Transactions{% endblock %}
 
 {% block content %}
+
 <h1>Transactions</h1>
 
+<!-- ADD BUTTON -->
+<a href="{% url 'transaction_add' %}" class="btn-add">+ Add Transaction</a>
+
+
+<hr>
+
+<!-- FILTER FORM -->
+<form method="GET">
+
+    <input 
+        type="text" 
+        name="search" 
+        placeholder="Search title/notes"
+        value="{{ request.GET.search }}"
+    >
+
+    <select name="type">
+        <option value="">All</option>
+        <option value="income" {% if request.GET.type == 'income' %}selected{% endif %}>Income</option>
+        <option value="expense" {% if request.GET.type == 'expense' %}selected{% endif %}>Expense</option>
+    </select>
+
+    <input 
+        type="date" 
+        name="date_from"
+        value="{{ request.GET.date_from }}"
+    >
+
+    <input 
+        type="date" 
+        name="date_to"
+        value="{{ request.GET.date_to }}"
+    >
+
+    <button type="submit">Filter</button>
+</form>
+
+<hr>
+
+<!-- TRANSACTIONS LIST -->
 <ul>
     {% for transaction in transactions %}
         <li>
+            <strong>{{ transaction.title }}</strong> |
             {{ transaction.date }} |
-            {{ transaction.category.name }} |
-            {{ transaction.amount }}
+            {{ transaction.category.name|default:"-" }} |
+            {{ transaction.amount }} |
+            {{ transaction.type }} |
+
+            <a href="{% url 'transaction_edit' transaction.id %}">✏️</a>
+            <a href="{% url 'transaction_delete' transaction.id %}">🗑️</a>
         </li>
     {% empty %}
         <li class="empty">No transactions found</li>
     {% endfor %}
 </ul>
+
 {% endblock %}

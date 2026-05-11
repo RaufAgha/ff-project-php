@@ -3,13 +3,29 @@
 {% block title %}Categories{% endblock %}
 
 {% block content %}
+
 <h1>Categories</h1>
+
+<a href="{% url 'category_add' %}" class="btn-add">
+    ➕ Add Category
+</a>
+
+<hr>
 
 <ul>
     {% for category in categories %}
-        <li>{{ category.name }} - {{ category.type }}</li>
+        <li>
+            <strong>{{ category.name }}</strong> |
+            {{ category.type }} |
+            Transactions: {{ category.transaction_count }}
+
+            <a href="{% url 'category_edit' category.id %}">✏️</a>
+
+            <a href="{% url 'category_delete' category.id %}">🗑️</a>
+        </li>
     {% empty %}
-        <li class="empty">No categories found</li>
+        <li>No categories found</li>
     {% endfor %}
 </ul>
+
 {% endblock %}
